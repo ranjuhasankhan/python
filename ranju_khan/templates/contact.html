@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Ranju Khan</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Contact Ranju Khan</h1>
+        <nav>
+            <a href="/">Home</a> |
+            <a href="/about">About</a> |
+            <a href="/contact">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Contact Form</h2>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                <div>
+                    {{ form.name.label }}<br>
+                    {{ form.name(size=32) }}
+                </div>
+                <div>
+                    {{ form.email.label }}<br>
+                    {{ form.email(size=32) }}
+                </div>
+                <div>
+                    {{ form.message.label }}<br>
+                    {{ form.message(rows=5, cols=32) }}
+                </div>
+                <div>
+                    {{ form.submit() }}
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Ranju Khan</p>
+    </footer>
+</body>
+</html>
